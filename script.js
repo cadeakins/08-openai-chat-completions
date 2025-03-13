@@ -12,7 +12,7 @@ async function main() {
     // Send model details and system message
     body: JSON.stringify({
       model: 'gpt-4o',
-      messages: [{ role: 'system', content: '' }]
+      messages: [{ role: 'user', content: '' }]
     })
   });
   // Parse and store the response data
