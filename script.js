@@ -1,5 +1,3 @@
-// Store your OpenAI API key
-const apiKey = 'your-api-key';
 
 async function main() {
   // Send a POST request to the OpenAI API
@@ -12,13 +10,16 @@ async function main() {
     // Send model details and system message
     body: JSON.stringify({
       model: 'gpt-4o',
-      messages: [{ role: 'user', content: '' }]
+      messages: [
+        { role: 'system', content: 'You are a helpful AI toolbot that helps users learn about internet memes. Keep answers short, witty, and do not use emojis.' },
+        { role: 'user', content: 'Tell me a fun fact about big chungus' }]
     })
   });
   // Parse and store the response data
   const result = await response.json();
   // Log result to the console
-  console.log(result);
+  console.log(result.choices[0].message.content);
 };
 
 // Call the main function
+main();
